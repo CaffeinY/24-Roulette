@@ -159,8 +159,7 @@ class GameConsumer(WebsocketConsumer):
             else:
                 self.game.game_state = 1
                 self.game.bullets_position = self.game.player1_slots + ',' + self.game.player2_slots
-                # self.game.current_position = random.randint(1, 24)
-                self.game.current_position = 1
+                self.game.current_position = random.randint(1, 24)
                 self.game.bullets_remains = 6
                 self.game.save()
                 self.game = Game.objects.get(id=self.game_id)
