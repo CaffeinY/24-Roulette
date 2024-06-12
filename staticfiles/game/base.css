@@ -1,0 +1,432 @@
+.page-name {
+    position: relative;
+    top: 50px;
+}
+#id_name_of_page {
+    font-size: 30px;
+    font-size: 50px;
+}
+.content {
+    position: relative;
+    top: 130px;
+}
+.login_register_table {
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin-bottom: 30px;
+}
+#id_login_button, #id_register_button {
+    width: 100px;
+}
+.tab-inside {
+    margin-top:30px;
+}
+
+.missing-player {
+    font-size: 30px;
+    color:#b32400;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: black;
+  }
+.card-container:hover .overlay {
+    opacity: 0.8;
+}
+.overlay-text {
+    margin-top: 20px;
+    text-align: center;
+    color:white;
+    font-size: 25px;
+    font-family: 'Spicy Rice';
+}
+.overlay-button {
+    position: relative;
+    top: 20px;
+    width: 20%;
+    left: 40%;
+}
+.errors {
+    color: red;
+    text-align: center;
+    font-size: 20px;
+}
+.myRoom-table {
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+#choose_card {
+    text-align:center;
+    margin-top: 50px;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Spicy Rice', cursive;
+}  
+.lead {
+    font-family: 'Courgette', cursive;
+}   
+#intro .jumbotron {
+    background-image: url(home_bg.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 70vh;
+}
+#intro .container {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}  
+.style-img {
+    width:125px;
+}
+header li {
+    margin: 10px;
+}
+#intro h1 {
+    font-size: 50px;
+    line-height: 1.5;
+}
+#intro .btn {
+    font-family: 'Courgette', cursive;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #dc3545;
+    color: white;
+    border: 1px solid #f8f9fa;
+    padding: 10px 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 1rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    font-size: large;
+}
+
+#second .btn{
+    font-family: 'Courgette', cursive;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #dc3545;
+    color: white;
+    border: 1px solid #f8f9fa;
+    padding: 10px 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 1rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+#second h3 {
+    font-family: 'Roboto', sans-serif;
+}
+footer {
+
+    bottom:0;
+    border-top: solid 1px;
+    padding: 10px 0px;
+} 
+footer img {
+    width:125px;
+}
+footer p {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+#home-context {
+    position: relative;
+    top: -200px;
+}
+#intro, #second {
+    margin-bottom: 150px;
+}
+.room_members {
+    color: #b3b3ff;
+    font-size: 20px;
+}
+.members {
+    text-align: center;
+}
+.card {
+    margin-bottom: 30px;
+}
+.card-image {
+    height: 250px;
+}
+#players_card {
+    margin-bottom: 30px;
+    height: 200px;
+}
+#player_board .card-body {
+    text-align: center;
+}
+#player_board .card-text {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0;
+    text-align: center;
+    color: #ffc107;
+}
+#game_players, #game_chatboard, #game_command{
+    color: white;
+    margin-bottom: 20px;
+}
+#game_command {
+    margin-top: 50px;
+}
+#role_card {
+    background-image: url(card.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 200px;
+    margin-left: 20px;
+}
+.check_button {
+    position: relative;
+    top: 90px;
+}
+.ready_button {
+    position: relative;
+    top: 40px;
+}
+#current_role {
+    font-weight: 1000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    position: relative;
+    top:30px;
+    background-color: white;
+}
+#chat-log {
+    overflow-y: scroll;
+    margin-left: 65px;
+    height:470px;
+    width: 400px;
+    resize: none;
+    border: 0;
+    border-radius:5px;
+    background-color:white;
+    opacity: 0.5;
+    padding: 10px;
+    font-size: 20px;
+    overflow: scroll;
+}
+
+#chat-log2 {
+    overflow-y: scroll;
+    margin-left: 65px;
+    height:470px;
+    width: 400px;
+    resize: none;
+    border:0;
+    border-radius:5px;
+    background-color:white;
+    opacity: 0.5;
+    padding: 10px;
+    font-size: 20px;
+    overflow: scroll;
+}
+
+#comment-board {
+    width: 700px;
+    height: 200px;
+    resize: none;
+    border: 1px solid white;
+    border-radius:5px;
+    background-color:black;
+    opacity: 0.5;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: white;
+    margin-left:30px
+}
+
+#chat-message-input {
+    width:400px;
+    height:40px;
+    border:0;
+    border-radius:5px;
+    padding: 10px;
+}
+
+#chat-message-submit {
+    margin-left: 20px;
+    height:40px;
+}
+
+.kill {
+    width: 100%;
+}
+
+#player_board .jumbotron{
+    background-image: url(bg.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+#game_body {
+    background-image: url(bg.jpg);
+}
+#game_content {
+    position: relative;
+    top: 150px;
+}
+#game_pagename {
+    position: relative;
+    top: 50px;
+    color:white;
+}
+
+#in-game {
+    position: relative;
+    top: 50px;
+    color:white;
+}
+
+#game_header a {
+    color:white;
+}
+
+
+
+
+#rule p{
+font-family: 'Montserrat', sans-serif;
+
+}
+
+#rule .btn{
+    font-family: 'Courgette', cursive;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #dc3545;
+    color: white;
+    border: 1px solid #f8f9fa;
+    padding: 10px 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 1rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+}
+
+#counter {
+    font-size: 30px;
+    border-radius: 50%;
+    color: white;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: 10px;
+
+}
+
+#remind {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+.vb {
+    margin-top: 10px;
+}
+.chat_msg {
+    display: block;
+}
+
+
+.profile {
+    padding:5%;
+}
+.profile .img{
+    text-align:center;
+}
+.profile .details{
+    border-left:3px solid #ded4da;
+}
+.profile .details p{
+    font-size:15px;
+    font-weight:bold;
+}
+
+div.darkTable {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  border: 2px solid #000000;
+  background-color: #7F7F7F;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  border-collapse: collapse;
+}
+.divTable.darkTable .divTableCell, .divTable.darkTable .divTableHead {
+  border: 1px solid #4A4A4A;
+  padding: 3px 2px;
+}
+.divTable.darkTable .divTableBody .divTableCell {
+  font-size: 13px;
+  color: #E6E6E6;
+}
+.divTable.darkTable .divTableRow:nth-child(even) {
+  background: #888888;
+}
+.divTable.darkTable .divTableHeading {
+  background: #031B28;
+  border-bottom: 0px solid #000000;
+}
+.divTable.darkTable .divTableHeading .divTableHead {
+  font-size: 15px;
+  font-weight: bold;
+  color: #E6E6E6;
+  text-align: center;
+  border-left: 2px solid #4A4A4A;
+}
+.divTable.darkTable .divTableHeading .divTableHead:first-child {
+  border-left: none;
+}
+
+.darkTable .tableFootStyle {
+  font-size: 12px;
+}
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}

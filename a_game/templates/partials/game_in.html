@@ -1,0 +1,144 @@
+<div id="game_page">
+    <!-- <form method="POST" ws-send>
+        <div>
+            Slot 1 &emsp;
+            <input class="form-control-inline" name="slot1" min="1" max="24" type='number' autocomplete='off' required> </input><br><br>
+            Slot 2 &emsp;
+            <input class="form-control-inline" name="slot2" min="1" max="24" type='number' autocomplete='off' required> </input><br><br>
+            Slot 3 &emsp;
+            <input class="form-control-inline" name="slot3" min="1" max="24" type='number' autocomplete='off' required> </input><br><br>
+
+            <input type="hidden" name="action" value="select-slot">
+            <input type="hidden" name="game-id" value="{{ game.id }}">
+        </div>
+        <div>
+            <button class="btn btn-outline-info">
+            Ready
+            </button>
+        </div> 
+        {% csrf_token %}
+    </form> -->
+
+    <div>
+        <h3>current round: <span style="color: blueviolet; font-size: 50;">{{ game.current_round}}</span><br></h3>
+        <!-- bullets remain -->
+        <h4>Bullets remain: <span style="color: red;">{{ game.bullets_remains }}</span></h4>
+        <h4 style="display: inline;"> 
+            player1:  
+            <span style="color: red;">{{ game.player1 }}</span> 
+            <span style="display: inline;">VS</span>
+            player2:  
+            <span style="color: blue;">{{ game.player2 }}</span> 
+        </h4> <br><br>
+
+        <!--  chips for both -->
+        <div>
+            <h4><span style="color: red;">{{ game.player1 }}</span> chips: <span style="color: red;">{{ game.player1_chips }}</span></h4>
+            <h4><span style="color: blue;">{{ game.player2 }}</span> chips: <span style="color: blue;">{{ game.player2_chips }}</span></h4>
+        </div><br><br>
+        
+        <!-- shots -->
+        <div>
+            <h4><span style="color: red;">{{ game.player1 }}</span> Get Shotted: <span style="color: red;">{{ game.player1_get_shot }}</span></h4>
+            <h4><span style="color: blue;">{{ game.player2 }}</span> Get Shotted: <span style="color: blue;">{{ game.player2_get_shot }}</span></h4>
+        </div><br><br>
+
+        {% if game.current_turn == 0 %}
+            <h4>It's <span style="color: red;"><span style="color: red;">{{ game.player1 }}</span></span>  turn</h4>
+        {% else %}
+            <h4>It's <span style="color: blue;"><span style="color: blue;">{{ game.player2 }}</span>  turn</h4>
+        {% endif %}
+
+        <!-- chips in table -->
+        <div>
+            <h4>Chips in table: <span style="color: gold;">{{ game.chips_in_table }}</span> </h4>
+        </div><br><br>
+        
+        <!-- passes times -->
+        <div>
+            <h4 id="current_passes">Passes (max 5): {{ game.current_passes }}</h4>
+            
+            <h4> It takes 
+                {% if game.current_passes == 0 %}
+                    <span style="color: gold;font-size: larger;">1</span>
+                {% elif game.current_passes == 1 %}
+                    <span style="color: gold;font-size: larger">2</span>
+                {% elif game.current_passes == 2 %}
+                    <span style="color: gold;font-size: larger">4</span>
+                {% elif game.current_passes == 3 %}
+                    <span style="color: gold;font-size: larger">8</span>
+                {% elif game.current_passes == 4 %}
+                    <span style="color: gold;font-size: larger">16</span>
+                {% endif %}
+                chips to Pass this shot
+            </h4>
+            
+            
+        </div><br><br>
+
+        
+        <!-- ingame notification  -->
+        <div style="color: darkmagenta;">
+            <div id="ingame_notification">{{ message }}</div><br><br>
+        </div>
+        
+
+
+        {% if game.current_turn == 0 and user == game.player1 %}
+            <!-- choose shoot or pass -->
+            <form method="POST" ws-send>
+                <div>
+                    <input type="hidden" name="action" value="shoot">
+                    <input type="hidden" name="game-id" value="{{ game.id }}">
+                </div>
+                <div>
+                    <button class="btn btn-outline-info">
+                    Shoot
+                    </button>
+                </div> 
+                {% csrf_token %}
+            </form>
+            <form method="POST" ws-send>
+                <div>
+                    <input type="hidden" name="action" value="pass">
+                    <input type="hidden" name="game-id" value="{{ game.id }}">
+                </div>
+                <div>
+                    <button class="btn btn-outline-info">
+                    Pass
+                    </button>
+                </div> 
+                {% csrf_token %}
+        {% elif game.current_turn == 1 and user == game.player2 %}
+            <!-- choose shoot or pass -->
+            <form method="POST" ws-send>
+                <div>
+                    <input type="hidden" name="action" value="shoot">
+                    <input type="hidden" name="game-id" value="{{ game.id }}">
+                </div>
+                <div>
+                    <button class="btn btn-outline-info">
+                    Shoot
+                    </button>
+                </div> 
+                {% csrf_token %}
+            </form>
+            <form method="POST" ws-send>
+                <div>
+                    <input type="hidden" name="action" value="pass">
+                    <input type="hidden" name="game-id" value="{{ game.id }}">
+                </div>
+                <div>
+                    <button class="btn btn-outline-info">
+                    Pass
+                    </button>
+                </div> 
+                {% csrf_token %}
+        {% endif %}
+
+
+    </div>
+
+
+
+</div>

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block nav %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a></li>
+{% if user.is_authenticated %}
+    <li class="nav-item"><a class="nav-link" >{{user.username}}</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>    
+{% else %}
+    <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+{% endif %}
+{% endblock %}
+
+
+{% block pageName %}
+    <span style="font-family: Impact;" id = "lobby_page">GAME PAGE</span>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class='container' hx-ext="ws" ws-connect="/ws/game/{{game.id}}">
+    <!-- render the game page base on the game status -->
+    <!-- Not  -->
+
+    
+    <div id="game_notification"> 
+    </div>
+    <div id="game_page">
+        
+        Loading...
+    </div>
+
+</div>
+
+
+{% endblock %}

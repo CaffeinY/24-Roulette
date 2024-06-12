@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block nav %}
+    <li class="nav-item  active"><a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a></li>
+{% if user.is_authenticated %}
+    <li class="nav-item"><a class="nav-link" >{{user.username}}</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'lobby' %}">Lobby</a></li>    
+    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>    
+{% else %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+{% endif %}
+{% endblock %}
+                
+{% block content %}
+<div id="home-context">
+    <section id = 'intro'>
+        <div class = "jumbotron" >
+            <div class= 'container'>
+                <div class = "col-md-12">
+                    <h1>Shoot Or Pass</h1>
+                    <p class="lead">Let's Test Out Your Mind</p>
+                    <a class = 'btn' href = "{% url 'login' %}">Join the Game!</a>
+                    <a class = 'btn' href = "{% url 'rule' %}">Tutorial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+
+{% block footer%}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class='col-md-4 text-left'></div>
+                {% load static %}
+                <img src="{% static 'game/logo.jpg' %}"> <p></p>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

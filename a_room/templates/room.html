@@ -1,0 +1,64 @@
+<div id="room_{{room.id}}" class="all-rooms col-4">
+    <div class="card">
+        <div class="card-container">
+            <img id="{{room.id}}" src="{{room.pictureURL}}" class="card-img-top card-image" onload="getPlayers(this.id)">
+            <div class="card-body">
+                {% if room.is_started %}
+                <p class="card-text">game is started </p>
+                {% else %}
+                <p class="card-text"><span id="ready-num_{{room.id}}">{{ room.players.count }}</span> players ready. Waiting for <span id="missing_{{room.id}}" class="missing-player"><b></b></span>{{ missing_player }} more players.</p>
+                {% endif %}
+            </div>
+            <div class="overlay">
+                
+                <div class="overlay-text">Room members</div><br>
+                <div id="members_{{room.id}}" class="members">
+                    {% for player in room.players.all %}
+                    <div style="color: beige;">{{ player.username }}</div>
+                    {% endfor %}
+                </div>
+
+                {% if room.is_started %}   
+                    <form method="POST" action="{% url 'join-game' room.id %}">
+                        <button class="btn btn-outline-warning overlay-button" id="exitButton_{{room.id}}">Join</button>
+                        {% csrf_token %}
+                    </form>
+
+                {% else %}
+                    <form method="POST" ws-send>
+                        <input type="hidden" name="action" value="join-room">
+                        <input type="hidden" name="room-id" value="{{ room.id }}">
+                        <button class="btn btn-outline-warning overlay-button" id="joinButton_{{room.id}}">Join</button>
+                        {% csrf_token %}
+                    </form>    
+                    
+                    {% if room.players.count == 2 and user == room.created_by and not room.is_started %}
+                    <form method="POST" ws-send>
+                            <input type="hidden" name="action" value="start-game">
+                            <input type="hidden" name="room-id" value="{{ room.id }}">
+                            <button class="btn btn-outline-warning overlay-button" id = "startButton_{{room.id}}">Start</button>
+                            {% csrf_token %}
+                    </form>
+                    {% endif %}    
+                     
+                {% endif %}
+                {% if user == room.created_by %}
+                    <form method="POST" ws-send>
+                        <input type="hidden" name="action" value="delete-room">
+                        <input type="hidden" name="room-id" value="{{ room.id }}">
+                        <button class="btn btn-outline-warning overlay-button" id="exitButton_{{room.id}}">Del</button>
+                        {% csrf_token %}
+                    </form>     
+                {% else %}
+                    <form method="POST" ws-send>
+                        <input type="hidden" name="action" value="exit-room">
+                        <input type="hidden" name="room-id" value="{{ room.id }}">
+                        <button class="btn btn-outline-warning overlay-button" id="exitButton_{{room.id}}">Exit</button>
+                        {% csrf_token %}
+                    </form>       
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div id="game_page">
+    {% if user == game.player1 or user == game.player2 %}
+<!-- 
+        {% if response %}
+            {% if response == 'failed' %}
+                <div style="color: red;">{{ message }}</div><br>
+            {% elif response == 'success' %}
+                <div style="color: green;">{{ message }}</div><br>
+            {% endif %}
+        {% endif %} -->
+    
+    <h2>Selecting slot from <span style="color: blueviolet;">1</span> to <span style="color: blueviolet;">24</span> inclusive</h2>
+    <form method="POST" ws-send>
+        <div>
+            Slot 1 &emsp;
+            <input class="form-control-inline" name="slot1" min="1" max="24" type='number' autocomplete='off' required> </input><br><br>
+            Slot 2 &emsp;
+            <input class="form-control-inline" name="slot2" min="1" max="24" type='number' autocomplete='off' required> </input><br><br>
+            Slot 3 &emsp;
+            <input class="form-control-inline" name="slot3" min="1" max="24" type='number' autocomplete='off' required> </input><br><br>
+
+            <input type="hidden" name="action" value="select-slot">
+            <input type="hidden" name="game-id" value="{{ game.id }}">
+        </div>
+        <div>
+            <button class="btn btn-outline-info">
+            Ready
+            </button>
+        </div> 
+        {% csrf_token %}
+    </form>
+
+    {% else %}
+    <h2>You are visiting this game.</h2>
+    <h3>The players are selecting the slots right now.</h3>
+    {% endif %}
+
+</div>

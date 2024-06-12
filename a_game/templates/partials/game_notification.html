@@ -1,0 +1,16 @@
+{% if game.game_state == 0 %}
+<div id="game_notification">
+    {% if response %}
+        {% if response == 'failed' %}
+            <div style="color: red;">{{ message }}</div><br>
+        {% elif response == 'success' %}
+            <div style="color: green;">{{ message }}</div><br>
+        {% endif %}
+    {% endif %}
+</div>
+
+{% elif game.game_state == 1 %}
+<div id="ingame_notification">
+    {{ message }}
+</div>
+{% endif %}
